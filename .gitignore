@@ -1,6 +1,7 @@
 *.class
 *.jar
 *.swp
+.env
 .classpath
 .clj-kondo/.cache
 .cpcache
