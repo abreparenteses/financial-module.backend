@@ -1,6 +1,6 @@
 # financial-module
 
-Clojure microservice for financial module implementing: Components, Reitit, Pedestal, Schema, PostgreSQL and Tests
+Clojure microservice implementing: Components, Reitit, Pedestal, Schema, PostgreSQL and Tests
 
 ## About this project
  - **financial-module**: With ports and adapters architecture, this project is a simple financial module that allows you to register and manipulate accounts payable (and receivable in the future - if possible).
