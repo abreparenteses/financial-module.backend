@@ -19,3 +19,7 @@
 (s/defschema AccountsPayableHistory
   {:entries [AccountsPayableEntry]
    :total s/Num})
+
+(s/defschema User
+  {:username s/Str
+   :password s/Str})

@@ -5,5 +5,7 @@
             :username #or [#env DB-USER "root"]
             :password #or [#env DB-PASS "root"]
             :host #or [#env DB-HOST "localhost"]
-            :port #or [#env DB-PORT 5432]}}
+            :port #or [#env DB-PORT 5432]}
+
+ :jwt {:secret #or [#env JWT_SECRET "app-jwt-secret"]}}
 
