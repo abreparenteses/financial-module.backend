@@ -1,18 +1,21 @@
 # financial-module
-Clojure Microservice Boilerplate: Components, Reitit, Pedestal, Schema, Postgresql and Tests
 
-## About this example
- - **financial-module**: An example of how use the boilerplate, it's a simple btc wallet
-that fetch the current btc price in USD and you can check your transaction history, do deposits and withdrawals.
+Clojure microservice for financial module implementing: Components, Reitit, Pedestal, Schema, PostgreSQL and Tests
+
+## About this project
+ - **financial-module**: With ports and adapters architecture, this project is a simple financial module that allows you to register and manipulate accounts payable (and receivable in the future - if possible).
 
 - [parenthesin/components](https://github.com/parenthesin/components): Helpers and component wrappers to give a foundation to create new services in clojure,
 you can find components for database, http, webserver and tools for db migrations.
 
-Verb | URL                | Description
------| ------------------ | ------------------------------------------------
-GET  | /wallet/history    | get all wallet entries and current total
-POST | /wallet/deposit    | do a deposit in btc in the wallet
-POST | /wallet/withdrawal | do a withdrawal in btc in the wallet if possible
+Verb   | URL                    | Description
+------ | ---------------------- | ------------------------------------------------
+POST   | /login                 | login with your username and password  
+GET    | /accounts-payable      | get all accounts payable
+POST   | /accounts-payable      | create a new account payable
+GET    | /accounts-payable/{id} | get an account payable by id
+PUT    | /accounts-payable/{id} | update an account payable by id
+DELETE | /accounts-payable/{id} | delete an account payable by id 
 
 ## Repl
 To open a nrepl
@@ -130,24 +133,18 @@ java -jar target/service.jar
 ├── resources -- Application resources assets folder and configuration files.
 │   └── migrations -- Current database schemas, synced on service startup.
 ├── src -- Library source code and headers.
-│   └── financial_module -- Source for the service example (wallet).
+│   └── financial_module -- Source for the service example.
 └── test -- Test source code.
     ├── integration -- Integration tests source (uses state-flow).
-    │   └── financial_module -- Tests for service example (wallet).
+    │   └── financial_module -- Tests for service example.
     └── unit -- Unity tests source (uses clojure.test).
-        └── financial_module -- Tests for service example (wallet).
+        └── financial_module -- Tests for service example.
 ```
 
 ## Related
 
-### Similar Projects
-- [vloth/ts-financial-module](https://github.com/vloth/ts-financial-module)
-
-### Forks
-- [parenthesin/financial-module-malli](https://github.com/parenthesin/financial-module-malli)
-
-### Using this Template
-- [rafaeldelboni/super-dice-roll-clj](https://github.com/rafaeldelboni/super-dice-roll-clj)
+### Official Template
+- [parenthesin/microservice-boilerplate](https://github.com/rafaeldelboni/super-dice-roll-clj)
 
 ## License
 This is free and unencumbered software released into the public domain.  
