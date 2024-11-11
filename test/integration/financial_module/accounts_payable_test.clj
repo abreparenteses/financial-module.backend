@@ -1,4 +1,4 @@
-(ns integration.financial-module.wallet-test
+(ns integration.financial-module.accounts-payable-test
   (:require [clojure.test :as clojure.test]
             [com.stuartsierra.component :as component]
             [financial-module.routes :as routes]
@@ -29,7 +29,7 @@
                                 [:config :http :router :database]))))
 
 (defflow
-  flow-integration-wallet-test
+  flow-integration-accounts-payable-test
   {:init (util/start-system! create-and-start-components!)
    :cleanup util/stop-system!
    :fail-fast? true}
