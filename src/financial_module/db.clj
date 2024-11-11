@@ -17,7 +17,7 @@
        first))
 
 (s/defn update-accounts-payable-entry-transaction
-  [{:accounts-payable/keys [id name description amount]} :- schemas.db/AccountsPayableTransaction
+  [{:accounts_payable/keys [id name description amount]} :- schemas.db/AccountsPayableTransaction
    db :- schemas.types/DatabaseComponent]
   (->> (-> (sql.helpers/update :accounts_payable)
            (sql.helpers/set {:name name
