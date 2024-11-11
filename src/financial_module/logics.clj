@@ -24,7 +24,7 @@
    name :- s/Str
    description :- s/Str
    amount :- s/Num]
-  #:accounts-payable{:id (uuid-from-date-amount date amount)
+  #:accounts_payable{:id (uuid-from-date-amount date amount)
                      :removed false
                      :name name
                      :description description
@@ -35,7 +35,7 @@
    name :- s/Str
    description :- s/Str
    amount :- s/Num]
-  #:accounts-payable{:id id
+  #:accounts_payable{:id id
                      :removed false
                      :name name
                      :description description

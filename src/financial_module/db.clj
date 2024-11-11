@@ -19,12 +19,6 @@
 (s/defn update-accounts-payable-entry-transaction
   [{:accounts-payable/keys [id name description amount]} :- schemas.db/AccountsPayableTransaction
    db :- schemas.types/DatabaseComponent]
-  (println "id: " (-> (sql.helpers/update :accounts_payable)
-                      (sql.helpers/set {:name name
-                                        :description description
-                                        :amount amount})
-                      (sql.helpers/where [:= :id id])
-                      sql/format))
   (->> (-> (sql.helpers/update :accounts_payable)
            (sql.helpers/set {:name name
                              :description description
