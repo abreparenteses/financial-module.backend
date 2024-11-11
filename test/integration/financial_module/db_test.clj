@@ -1,8 +1,8 @@
 (ns integration.financial-module.db-test
   (:require [clojure.test :as clojure.test]
             [com.stuartsierra.component :as component]
-            [integration.financial-module.util :as util]
             [financial-module.db :as db]
+            [integration.financial-module.util :as util]
             [parenthesin.components.config.aero :as components.config]
             [parenthesin.components.db.jdbc-hikari :as components.database]
             [schema.test :as schema.test]
@@ -29,18 +29,17 @@
     [database (state-flow.api/get-state :database)]
 
     (state/invoke
-     #(db/insert-wallet-transaction {:wallet/id #uuid "cd989358-af38-4a2f-a1a1-88096aa425a7"
-                                     :wallet/btc_amount 2.0M
-                                     :wallet/usd_amount_at 66000.00M}
-                                    database))
+     #(db/insert-accounts-payable-transaction {:accounts_payable/id #uuid "cd989358-af38-4a2f-a1a1-88096aa425a7"
+                                               :accounts_payable/removed false
+                                               :accounts_payable/name "name"
+                                               :accounts_payable/description "description"
+                                               :accounts_payable/amount 100.00M}
+                                              database))
 
     (flow "check transaction was inserted in db"
-      (match? [#:wallet{:id #uuid "cd989358-af38-4a2f-a1a1-88096aa425a7"
-                        :btc_amount 2.0M
-                        :usd_amount_at 66000.00M
-                        :created_at inst?}]
-              (db/get-wallet-all-transactions database)))
-
-    (flow "get current btc amount from db"
-      (match? 2.0M
-              (db/get-wallet-total database)))))
+      (match? [#:accounts_payable{:id #uuid "cd989358-af38-4a2f-a1a1-88096aa425a7"
+                                  :name "name"
+                                  :description "description"
+                                  :amount 100.00M
+                                  :created_at inst?}]
+              (db/get-accounts-payable-all-transactions database)))))

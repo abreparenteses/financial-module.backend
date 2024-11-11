@@ -17,3 +17,22 @@
     (is (= "1987-02-10 09:38:43"
            (adapters/inst->utc-formated-string #inst "1987-02-10T09:38:43.000Z"
                                                "yyyy-MM-dd hh:mm:ss")))))
+(deftest db->wire-in
+  (testing "should adapt db/accounts-payable-entry to wire-in/accounts-payable-entry"
+    (let [id (random-uuid)
+          name "some-string"
+          description "some-description"
+          amount 10M
+          created_at #inst "2021-11-23T22:30:34"
+          db-entry #:accounts_payable{:id id
+                                      :name name
+                                      :description description
+                                      :amount amount
+                                      :created_at created_at}
+          wire-in-entry {:id id
+                         :name name
+                         :description description
+                         :amount (bigdec amount)
+                         :created-at created_at}]
+      (is (= wire-in-entry
+             (adapters/db->wire-in db-entry))))))
