@@ -1,8 +1,6 @@
 (ns financial-module.adapters
   (:require [financial-module.schemas.db :as schemas.db]
-            [financial-module.schemas.types :as schemas.types]
             [financial-module.schemas.wire-in :as schemas.wire-in]
-            [financial-module.schemas.wire-out :as schemas.wire-out]
             [schema.core :as s])
   (:import [java.time LocalDateTime ZoneId]
            [java.time.format DateTimeFormatter]))

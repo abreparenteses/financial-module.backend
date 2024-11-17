@@ -1,7 +1,6 @@
 (ns financial-module.controllers
   (:require [financial-module.db :as db]
             [financial-module.logics :as logics]
-            [financial-module.ports.http-out :as http-out]
             [financial-module.schemas.db :as schemas.db]
             [financial-module.schemas.types :as schemas.types]
             [schema.core :as s]))

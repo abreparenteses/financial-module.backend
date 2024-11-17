@@ -1,7 +1,6 @@
 (ns financial-module.logics
   (:require [financial-module.adapters :as adapters]
             [financial-module.schemas.db :as schemas.db]
-            [financial-module.schemas.types :as schemas.types]
             [schema.core :as s])
   (:import [java.util UUID]))
 
